@@ -1,14 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
+import { createRoot } from "react-dom/client";
+import { WhyReact } from "./components/WhyReact";
 
-const page = (
-  <div>
-    <h1>Element 1</h1>
-    <h1>Element 2</h1>
-    <h1>Element 3</h1>
-  </div>
+const root = createRoot(document.getElementById("root"));
+
+root.render(
+  <>
+    <WhyReact />
+  </>
 );
-
-document.getElementById("root").append(page);
