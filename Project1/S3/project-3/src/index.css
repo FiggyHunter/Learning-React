@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+body {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Inter";
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+main ul {
+  list-style: none; /* Remove default bullets */
+}
+
+main ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Remove default bullets */
+}
+
+main ul li::before {
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: rgb(0, 60, 255); /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1rem; /* Also needed for space (tweak if needed) */
+  margin-left: -1rem; /* Also needed for space (tweak if needed) */
+  font-size: 2.5rem;
+}
+
+main > img {
+  width: 500px;
+  opacity: 0.5;
+  position: absolute;
+  left: 85%;
+  top: 30%;
+  right: 40%;
+}
