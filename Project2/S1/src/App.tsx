@@ -1,7 +1,13 @@
+import Hero from "./components/Hero";
+import Navigation from "./components/Navigation";
+
+import "./index.css";
+
 export default function App() {
   return (
-    <div>
-      App <span>test</span>
-    </div>
+    <>
+      <Navigation />
+      <Hero />
+    </>
   );
 }
