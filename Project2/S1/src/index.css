@@ -1,69 +1,93 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;700&display=swap");
 
 body {
+  padding: 0;
   margin: 0;
+}
+
+.main-navigation {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 2rem 2rem;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.hero-image {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 2rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.hero {
+  display: grid;
+  justify-items: center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.hero h1 {
+  font-family: "Poppins";
+  justify-self: start;
+  font-size: 3rem;
+  margin-left: 3rem;
+  margin-bottom: 0;
+}
+
+.hero p {
+  font-family: "Poppins Regular";
+  font-size: 1.2rem;
+  justify-self: start;
+  margin-left: 3rem;
+  margin-top: 1rem;
+  width: 60%;
+}
+
+.card {
+  display: grid;
+  max-width: 350px;
+  position: relative;
+}
+
+.cards-container {
+  margin: 2rem 0rem 2rem 3rem;
+}
+
+.card img {
+  border-radius: 1.5rem;
+  max-width: 350px;
+  height: 500px;
+}
+
+.label {
+  position: absolute;
+  background-color: white;
+  color: black;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10;
+  padding: 0.3rem 0.5rem;
+  font-family: "Poppins";
+  text-transform: uppercase;
+}
+
+.card-description {
+  display: flex;
+  font-family: "Poppins";
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1.2rem;
+  margin-top: 0.25rem;
+}
+
+.card h3 {
+  font-family: "Poppins Light";
+  margin: 0;
+  margin-top: 0.75rem;
+}
+
+.card h2 {
+  font-family: "Poppins Medium";
+  margin: 0;
+  margin-top: 0.75rem;
+}
+
+.light {
+  font-family: "Poppins Light";
 }
