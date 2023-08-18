@@ -29,19 +29,28 @@ Challenge: Pass props to the Card component and display that data
 
 */
 
+// key={data.title}
+// title={data.title}
+// rating={data.stats.rating}
+// img={data.coverImg}
+// location={data.location}
+// price={data.price}
+// reviewCount={data.stats.reviewCount}
+// openSpots={data.openSpots}
+
 export default function Card({
-  img,
-  rating,
-  reviewCount,
-  location,
+  coverImg,
+  openSpots,
+  stats,
   title,
   price,
+  location,
 }) {
   return (
     <section className="card">
       <div className="image-container">
-        <img src={img} />
-        <div className="label">Sold Out</div>
+        <img src={coverImg} />
+        {!openSpots && <div className="label">Sold Out</div>}
       </div>
       <div className="card-description">
         <svg
@@ -66,8 +75,8 @@ export default function Card({
           </svg>
         </svg>
         <div className="rating">
-          {rating}
-          <span className="light"> ({reviewCount}) </span>
+          {stats.rating}
+          <span className="light"> ({stats.reviewCount}) </span>
         </div>
         <div className="country">
           <span className="light">{location}</span>

@@ -14,16 +14,8 @@ export default function Hero() {
         </p>
       </main>
       <div className="cards-container">
-        {data.map((data) => (
-          <Card
-            key={data.title}
-            title={data.title}
-            rating={data.stats.rating}
-            img={data.coverImg}
-            location={data.location}
-            price={data.price}
-            reviewCount={data.stats.reviewCount}
-          />
+        {data.map((item) => (
+          <Card key={item.id} {...item} />
         ))}
       </div>
     </>
