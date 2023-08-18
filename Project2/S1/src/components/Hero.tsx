@@ -1,5 +1,6 @@
 import Card from "./Card";
 import Photogrid from "./Photogrid";
+import data from "../data.ts";
 
 export default function Hero() {
   return (
@@ -13,7 +14,17 @@ export default function Hero() {
         </p>
       </main>
       <div className="cards-container">
-        <Card />
+        {data.map((data) => (
+          <Card
+            key={data.title}
+            title={data.title}
+            rating={data.stats.rating}
+            img={data.coverImg}
+            location={data.location}
+            price={data.price}
+            reviewCount={data.stats.reviewCount}
+          />
+        ))}
       </div>
     </>
   );
