@@ -17,11 +17,30 @@ Notes:
   this data into the component.
 */
 
-export default function Card(props) {
+/*
+Challenge: Pass props to the Card component and display that data
+
+- img ("katie-zaferes.png") x
+- rating ("5.0") x
+- reviewCount (6) x
+- country (Whatever you want) x
+- title ("Life Lessons with Katie Zaferes")
+- price (136)
+
+*/
+
+export default function Card({
+  img,
+  rating,
+  reviewCount,
+  location,
+  title,
+  price,
+}) {
   return (
     <section className="card">
       <div className="image-container">
-        <img src="https://n1info.ba/wp-content/uploads/2022/09/14/1663172317-220914_lana_pudar_bisera_turkovic_47332-1200x800.jpg" />
+        <img src={img} />
         <div className="label">Sold Out</div>
       </div>
       <div className="card-description">
@@ -47,15 +66,16 @@ export default function Card(props) {
           </svg>
         </svg>
         <div className="rating">
-          5.0 <span className="light">(6)</span>
+          {rating}
+          <span className="light"> ({reviewCount}) </span>
         </div>
         <div className="country">
-          <span className="light">USA</span>
+          <span className="light">{location}</span>
         </div>
       </div>
-      <h3>Life lessons with Katie Zaferes</h3>
+      <h3> {title}</h3>
       <h2>
-        <b>From $136</b> <span className="light">/ person</span>
+        <b>From ${price}</b> <span className="light">/ person</span>
       </h2>
     </section>
   );
