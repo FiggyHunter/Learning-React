@@ -1,0 +1,89 @@
+.main-header {
+  background: linear-gradient(90deg, #672280 0%, #a626d3 100%);
+  display: grid;
+  grid-template-columns: min-content auto auto;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.main-header .info {
+  justify-self: end;
+}
+
+body {
+  margin: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs {
+  display: flex;
+  width: 50%;
+  margin: 3rem auto 1rem auto;
+  justify-content: space-between;
+}
+
+input {
+  width: 40%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  border-width: 1px;
+}
+
+button {
+  width: 50%;
+  margin: 0 auto;
+  background: ;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #711f8d 0%, #a818da 100%);
+  padding: 0.5rem;
+  transition: all 0.5s;
+}
+
+button:hover {
+  filter: brightness(0.9);
+  cursor: pointer;
+}
+
+.image {
+  width: 50%;
+  margin: 2rem auto;
+  position: relative;
+  display: grid;
+}
+
+.meme-image {
+  justify-self: center;
+  width: 400px;
+  position: relative;
+  top: 0;
+}
+
+.top-text,
+.bottom-text {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2rem;
+  position: relative;
+  -webkit-text-stroke: black 1px;
+}
+
+.top-text {
+  top: 3rem;
+  z-index: 10;
+  color: white;
+}
+
+.bottom-text {
+  bottom: 3rem;
+  z-index: 10;
+  color: white;
+}
