@@ -3,25 +3,38 @@ import memesData from "../memesData.ts";
 import { ChangeEventHandler, useState } from "react";
 
 export default function Meme() {
-  const [memeImage, setMemeImage] = useState("");
-  const [topText, updateTopText] = useState("");
-  const [bottomText, updateBottomText] = useState("");
+  const [meme, setMeme] = useState({ topText: "", bottomText: "", image: "" });
+  const [allMemeImages] = useState(memesData);
+  const randomIndex = Math.floor(Math.random() * 101);
 
   function getMemeImage(e: React.MouseEvent) {
     e.preventDefault();
-    const { url } = memesData.data.memes[randomIndex];
-    setMemeImage(url);
+    const { url } = allMemeImages.data.memes[randomIndex];
+    setMeme((pastMeme) => {
+      return {
+        ...pastMeme,
+        image: url,
+      };
+    });
   }
 
   const changeTopText = (e: ChangeEventHandler) => {
-    updateTopText(e.target.value);
+    setMeme((pastMeme) => {
+      return {
+        ...pastMeme,
+        topText: e.target.value,
+      };
+    });
   };
 
   const changeBottomText = (e: ChangeEventHandler) => {
-    updateBottomText(e.target.value);
+    setMeme((pastMeme) => {
+      return {
+        ...pastMeme,
+        bottomText: e.target.value,
+      };
+    });
   };
-
-  const randomIndex = Math.floor(Math.random() * 101);
 
   return (
     <main>
@@ -38,9 +51,9 @@ export default function Meme() {
       </form>
 
       <section className="image">
-        <div className="top-text">{topText}</div>
-        <img className="meme-image" src={memeImage} alt="" />{" "}
-        <div className="bottom-text">{bottomText}</div>
+        <div className="top-text">{meme.topText}</div>
+        <img className="meme-image" src={meme.image} alt="" />{" "}
+        <div className="bottom-text">{meme.bottomText}</div>
       </section>
     </main>
   );
