@@ -3,7 +3,11 @@ import memesData from "../memesData.ts";
 import { ChangeEventHandler, useState } from "react";
 
 export default function Meme() {
-  const [meme, setMeme] = useState({ topText: "", bottomText: "", image: "" });
+  const [meme, setMeme] = useState({
+    topText: "",
+    bottomText: "",
+    image: "http://i.imgflip.com/1bij.jpg",
+  });
   const [allMemeImages] = useState(memesData);
   const randomIndex = Math.floor(Math.random() * 101);
 
@@ -18,31 +22,24 @@ export default function Meme() {
     });
   }
 
-  const changeTopText = (e: ChangeEventHandler) => {
-    setMeme((pastMeme) => {
-      return {
-        ...pastMeme,
-        topText: e.target.value,
-      };
-    });
-  };
-
-  const changeBottomText = (e: ChangeEventHandler) => {
-    setMeme((pastMeme) => {
-      return {
-        ...pastMeme,
-        bottomText: e.target.value,
-      };
-    });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setMeme((prevMeme) => ({ ...prevMeme, [name]: value }));
   };
 
   return (
     <main>
       <form>
         <div className="inputs">
-          <input onChange={changeTopText} placeholder="Top Text" type="text" />
           <input
-            onChange={changeBottomText}
+            name="topText"
+            onChange={handleChange}
+            placeholder="Top Text"
+            type="text"
+          />
+          <input
+            name="bottomText"
+            onChange={handleChange}
             placeholder="Bottom Text"
             type="text"
           />
