@@ -12,9 +12,15 @@ export default function Meme() {
   const randomIndex = Math.floor(Math.random() * 101);
 
   useEffect(() => {
-    fetch("https://api.imgflip.com/get_memes")
-      .then((res) => res.json())
-      .then((data) => setAllMemeImages(data.data.memes));
+    async function fetchData() {
+      const fetchedData = await fetch("https://api.imgflip.com/get_memes");
+      const data = await fetchedData.json();
+      setAllMemeImages(data.data.memes);
+    }
+
+    fetchData();
+
+    return () => {};
   }, []);
 
   function getMemeImage(e: React.MouseEvent) {
