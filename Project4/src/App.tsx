@@ -9,7 +9,8 @@ export default function App() {
   const [notes, setNotes] = useState([]);
   const [currentNoteId, setCurrentNoteId] = useState("");
   const [tempNote, setTempNote] = useState("");
-
+  let currentNote =
+    notes.find((note) => note?.id === currentNoteId) || notes[0];
   const sortedNotes = notes.sort((a, b) => {
     const timestampA = new Date(a.updatedAt);
     const timestampB = new Date(b.updatedAt);
@@ -34,17 +35,23 @@ export default function App() {
     return unsubscribe;
   }, []);
 
-  // useEffect(() => {
-  //   setCurrentNoteId(notes[0].id);
-  // }, [notes.length]);
-
   useEffect(() => {
     if (!currentNoteId) {
       setCurrentNoteId(notes[0]?.id);
     }
-  }, [notes]);
-  let currentNote =
-    notes.find((note) => note?.id === currentNoteId) || notes[0];
+    if (currentNoteId) {
+      setTempNote(currentNote.body);
+    }
+  }, [notes, currentNoteId]);
+
+  useEffect(() => {
+    const messageDelay = setTimeout(() => {
+      if (currentNote.body !== tempNote) updateNote(tempNote);
+    }, 500);
+    return () => {
+      clearTimeout(messageDelay);
+    };
+  }, [tempNote]);
 
   async function createNewNote() {
     const newNote = {
@@ -68,7 +75,7 @@ export default function App() {
   async function deleteNote(noteId) {
     const docRef = doc(db, "notes", noteId);
     await deleteDoc(docRef);
-    setCurrentNoteId(notes[0]?.id);
+    setCurrentNoteId(null);
   }
 
   return (
@@ -82,7 +89,7 @@ export default function App() {
             newNote={createNewNote}
             deleteNote={deleteNote}
           />
-          <Editor currentNote={currentNote} updateNote={updateNote} />
+          <Editor tempNote={tempNote} setTempNote={setTempNote} />
         </Split>
       ) : (
         <div className="no-notes">
